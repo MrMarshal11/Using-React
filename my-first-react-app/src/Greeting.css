@@ -1,0 +1,17 @@
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#root > div {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+}

@@ -1,3 +1,5 @@
+import './Greeting.css'
+
 function Demo() {
   return (
     <div>
