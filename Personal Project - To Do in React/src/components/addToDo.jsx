@@ -1,19 +1,45 @@
+import { useState } from "react";
 import "../styles/addToDo.css";
 
-function AddToDo() {
+function AddToDo( {pushToDo} ) {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+
+  // Inputs change the title and description
+  const changeDescription = (e) => {
+    setDescription(e.target.value)
+  }
+  
+  const changeTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+// handleSubmit must be a function, it pushes to main array and resets the title and description.
+  const handleSubmit = (e) => {
+    e.preventDefault();             
+    pushToDo({title: title, description: description});
+    setTitle('');
+    setDescription('');
+  }
+
   return (
-    <form className="persistentForm">
-      <formfield>
+    // onSubmit must be on form not the button
+    <form className="persistentForm" onSubmit={handleSubmit}> 
+      <fieldset>
         <label>Title: </label>
-        <input />
-      </formfield>
+        <input 
+        value={title}
+        onChange={changeTitle}/>
+      </fieldset>
 
-      <formfield>
+      <fieldset>
         <label>Description: </label>
-        <input />
-      </formfield>
+        <input 
+        value={description}
+        onChange={changeDescription}/>
+      </fieldset>
 
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }

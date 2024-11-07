@@ -1,12 +1,17 @@
-import '../styles/toDoList.css';
+import "../styles/toDoList.css";
 
-function ToDoList() {
+function ToDoList({ toDoArray }) {
   return (
-    <div className="toDo">
-      <h2>demo text</h2>
-      <p>demo description lorem ispum dalar solop</p>
-    </div>
+    <>
+      {toDoArray.map((toDo, index) => (
+        <div className="toDo" key={index}>
+          <h2>{toDo.title}</h2>
+          <p>{toDo.description}</p>
+        </div>
+      ))}
+    </>
   );
 }
+
 
 export default ToDoList;
