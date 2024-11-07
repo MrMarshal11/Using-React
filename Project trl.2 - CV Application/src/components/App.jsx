@@ -3,6 +3,7 @@ import "../styles/App.css";
 import Form from "./form";
 import CV from "./CV";
 import EducationalForm from "./EducationForm";
+import PracticalForm from "./PracticalForm";
 
 function App() {
   // PersistentForm
@@ -50,27 +51,64 @@ function App() {
 
   // On button submit, update educational form
   const submitEducationalExperience = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const newExperience = {
       id: crypto.randomUUID(),
       schoolName: schoolName,
       titleOfStudy: titleOfStudy,
-      dateOfStudy: dateOfStudy
-    }
+      dateOfStudy: dateOfStudy,
+    };
 
-    setEducationalExperience((array) => [...array, newExperience,]);
+    setEducationalExperience((array) => [...array, newExperience]);
   };
 
-  // update on input change
-  // when submit, push new object into educational experience
+  // PracticalForm
+  const [practicalExperience, setPracticalExperience] = useState([
+    {
+      id: crypto.randomUUID(),
+      companyName: "Woolworths Surfers Paradise",
+      positionTitle: "Supervisor",
+      mainResponsibilities: "supervise, work the cash register etc",
+      dateOfWork: "08 / 12 / 2021",
+    },
+  ]);
 
-  // figure out how to do the one below:
+  const [companyName, setCompanyName] = useState("");
+  const [positionTitle, setPositionTitle] = useState("");
+  const [mainResponsibilities, setMainResponsibilities] = useState("");
+  const [dateOfWork, setDateOfWork] = useState("");
 
-  // after thats done, send it to CV and then map educationalForm
-  // display results in a new div
+  const updateCompanyName = (e) => {
+    setCompanyName(e.target.value);
+  };
 
-  // another thing to fix is to make the new form submits into objects not arrays
+  const updatePositionTitle = (e) => {
+    setPositionTitle(e.target.value);
+  };
+
+  const updateMainResponsibilities = (e) => {
+    setMainResponsibilities(e.target.value);
+  };
+
+  const updateDateOfWork = (e) => {
+    setDateOfWork(e.target.value);
+  };
+
+  // On button submit, update educational form
+  const submitPracticalExperience = (e) => {
+    e.preventDefault();
+
+    const newPracticalExperience = {
+      id: crypto.randomUUID(),
+      companyName: companyName,
+      mainResponsibilities: mainResponsibilities,
+      positionTitle: positionTitle,
+      dateOfWork: dateOfWork,
+    };
+
+    setPracticalExperience((array) => [...array, newPracticalExperience]);
+  };
 
   return (
     <>
@@ -87,14 +125,23 @@ function App() {
           updateDateOfStudy={updateDateOfStudy}
           submitEducationalExperience={submitEducationalExperience}
         />
+
+        <PracticalForm 
+        companyName={companyName}
+        mainResponsibilities={mainResponsibilities}
+        positionTitle={positionTitle}
+        dateOfWork={dateOfWork}
+        submitPracticalExperience={submitPracticalExperience}
+        />
       </div>
       <div className="right">
         <CV
           fullName={fullName}
           email={email}
           phoneNumber={phoneNumber}
-          
+
           educationalExperience={educationalExperience}
+          practicalExperience={practicalExperience}
         />
       </div>
     </>

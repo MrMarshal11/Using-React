@@ -1,4 +1,4 @@
-import "../styles/EducationalForm.css";
+import "../styles/secondaryForms.css";
 
 function EducationalForm({
   updateDateOfStudy,
@@ -8,8 +8,9 @@ function EducationalForm({
 }) {
   return (
     <>
-      <h2>Add Educational Experience?</h2>
       <form className="secondaryForm" onSubmit={submitEducationalExperience}>
+        <h2>Add Educational Experience?</h2>
+
         <fieldset>
           <label>School Name: </label>
           <input onChange={updateSchoolName} />
@@ -30,7 +31,5 @@ function EducationalForm({
     </>
   );
 }
-
-// A section to add your educational experience (school name, title of study and date of study)
 
 export default EducationalForm;
