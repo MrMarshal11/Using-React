@@ -1,8 +1,7 @@
-#root {
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
+.main {
+    display: grid;
     justify-content: center;
+    grid-template: 1fr / 2fr 8fr;
 }
 
 .form {
@@ -11,6 +10,9 @@
     align-items: flex-start;
     justify-content: center;
     border: 1px solid white;
+    gap: 20px;
+    margin: 10px;
+    padding: 10px;
 }
 
 fieldset {

@@ -1,25 +1,23 @@
-// A section to add general information like name, email and phone number.
-
-import { useState } from "react";
 import './Form.css'
 
-function Form() {
+function Form({changeFullName, changeEmail, changePhoneNumber}) {
   return (
     <div>
+      <h1>Please Fill out this form</h1>
       <form className="form">
         <fieldset>
             <label>Full Name: </label>
-            <input />
+            <input onChange={changeFullName} />
         </fieldset>
 
         <fieldset>
             <label>Email: </label>
-            <input type="email"/>
+            <input type="email" onChange={changeEmail}/>
         </fieldset>
 
         <fieldset>
             <label>Phone Number: </label>
-            <input />
+            <input onChange={changePhoneNumber}/>
         </fieldset>
       </form>
     </div>
