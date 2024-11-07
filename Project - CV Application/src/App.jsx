@@ -10,6 +10,17 @@ function App() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
+  const [eduExperienceData, setEduExperienceData] = useState([]);
+  const [workExperienceData, setWorkExperienceData] = useState([]);
+
+  const addWorkExperienceData = () => {
+    setWorkExperienceData(...workExperienceData.push())
+  }
+
+  const addEduExperienceData = () => {
+    setEduExperienceData(...eduExperienceData.push())
+  }
+
   const changeFullName = (e) => {
     setFullName(e.target.value);
   }
@@ -31,14 +42,20 @@ function App() {
           email={email} changeEmail={changeEmail}
           phoneNumber={phoneNumber} changePhoneNumber={changePhoneNumber}
           />
-          <EduExperience />
-          <WorkExperience />
+          <EduExperience 
+          eduExperienceData={eduExperienceData} addEduExperienceData={addEduExperienceData}
+          />
+          <WorkExperience 
+          workExperienceData={workExperienceData} addWorkExperienceData={addWorkExperienceData}
+          />
         </div>
         <div className='right'>
           <CV 
           fullName={fullName}
           email={email}
           phoneNumber={phoneNumber}
+          eduExperienceData={eduExperienceData}
+          workExperienceData={workExperienceData}
           />
         </div>
       </div>
