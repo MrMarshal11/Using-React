@@ -1,9 +1,13 @@
 .persistentForm {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-flow: column;
     justify-content: center;
     gap: 20px;
+}
+
+.persistentForm button {
+    align-self: center;
 }
 
 fieldset {

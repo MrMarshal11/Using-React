@@ -5,11 +5,16 @@ import ToDoList from "./toDoList";
 
 function App() {
   // Main 'State' containing all to do arrays
-  const [toDoArray, setToDoArray] = useState([{title: 'First List', description: 'List description is here'}]);
+  const [toDoArray, setToDoArray] = useState([{id: crypto.randomUUID(), title: 'First List', description: 'List description is here'}]);
 
   // Add new to do
   const pushToDo = (newToDo) => {
-    setToDoArray(array => [...array, newToDo])
+    const toDoWithId = { ...newToDo, id: crypto.randomUUID() };
+    setToDoArray(array => [...array, toDoWithId])
+  }
+
+  const removeToDo = (id) => {
+    setToDoArray((array) => array.filter((toDo) => toDo.id !== id))
   }
 
   return (
@@ -20,7 +25,7 @@ function App() {
       </div>
       <div className="right">
         {/* Give this child the to do arrays */}
-        <ToDoList toDoArray={toDoArray}/>
+        <ToDoList toDoArray={toDoArray} removeToDo={removeToDo}/>
       </div>
     </>
   );
