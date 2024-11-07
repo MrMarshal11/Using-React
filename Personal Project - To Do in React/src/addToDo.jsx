@@ -1,4 +1,4 @@
-import "./addToDo.css";
+import "./styles/addToDo.css";
 
 function AddToDo() {
   return (
