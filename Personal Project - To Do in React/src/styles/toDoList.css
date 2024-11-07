@@ -1,14 +1,22 @@
 .toDo {
-    background-color: black;
-    padding-left: 30px;
-    padding-right: 30px;
+    background-color: rgb(83, 0, 83);
     border: 3px solid white;
     display: flex;
     flex-flow: column;
-    align-items: center;
     justify-content: center;
+    width: 50vw;
+    max-height: 50vh;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 h2 {
     border-bottom: white solid 1px;
+    align-self: center;
+    text-transform: capitalize;
+}
+
+.description {
+    display: flex;
+    justify-content: space-evenly;
 }

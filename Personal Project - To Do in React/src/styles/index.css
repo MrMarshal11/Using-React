@@ -1,7 +1,4 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
   height: auto;
   background-color: rgb(53, 53, 53);
@@ -11,4 +8,6 @@ body {
 #root {
   display: grid;
   grid-template: 1fr / 2fr 8fr;
+  min-height: 100vh;
+  height: auto;
 }

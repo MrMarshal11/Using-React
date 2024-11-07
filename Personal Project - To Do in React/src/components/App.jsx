@@ -5,7 +5,7 @@ import ToDoList from "./toDoList";
 
 function App() {
   // Main 'State' containing all to do arrays
-  const [toDoArray, setToDoArray] = useState([{title: 'poo', description: 'lfdaf sdfagmsavsv vfdjs'}]);
+  const [toDoArray, setToDoArray] = useState([{title: 'First List', description: 'List description is here'}]);
 
   // Add new to do
   const pushToDo = (newToDo) => {

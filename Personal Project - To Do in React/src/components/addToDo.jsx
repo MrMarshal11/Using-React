@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+// temporary
+
 import { useState } from "react";
 import "../styles/addToDo.css";
 

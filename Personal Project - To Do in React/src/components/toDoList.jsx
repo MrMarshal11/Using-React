@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+// temporary
+
 import "../styles/toDoList.css";
 
 function ToDoList({ toDoArray }) {
@@ -6,7 +9,10 @@ function ToDoList({ toDoArray }) {
       {toDoArray.map((toDo, index) => (
         <div className="toDo" key={index}>
           <h2>{toDo.title}</h2>
-          <p>{toDo.description}</p>
+          <div className="description">
+            <p><strong>Description:</strong></p>
+            <p>{toDo.description}</p>
+          </div>
         </div>
       ))}
     </>
