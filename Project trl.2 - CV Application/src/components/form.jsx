@@ -1,7 +1,9 @@
 import { useState } from "react";
 import '../styles/form.css'
 
-function Form({updateFullName, updateEmail, updatePhoneNumber}) {
+function Form(
+    {updateFullName, updateEmail, updatePhoneNumber}
+) {
     return (
         <form className="persistentForm">
             <h1>Please Fill Out This Form</h1>
@@ -19,7 +21,6 @@ function Form({updateFullName, updateEmail, updatePhoneNumber}) {
                 <label>Phone Number:</label>
                 <input onChange={updatePhoneNumber}/>
             </fieldset>
-
         </form>
     )
 }
