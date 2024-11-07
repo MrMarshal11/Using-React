@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function WorkExperience() {
+function WorkExperience({addWorkExperienceData}) {
   const [addWorkExperienceVisible, setAddWorkExperienceVisible] =
     useState(false);
 
@@ -8,6 +8,27 @@ function WorkExperience() {
     addWorkExperienceVisible
       ? setAddWorkExperienceVisible(false)
       : setAddWorkExperienceVisible(true);
+  };
+
+  const [companyName, setCompanyName] = useState('');
+  const [positionTitle, setPositionTitle] = useState('');
+  const [mainResponsibility, setMainResponsibility] = useState('');
+  const [dateWorked, setDateWorked] = useState('');
+
+  const handleSave = () => {
+    const newWorkExperience = {
+      companyName,
+      positionTitle,
+      mainResponsibility,
+      dateWorked,
+    };
+    addWorkExperienceData(newWorkExperience);
+    // Clear local state
+    setCompanyName('');
+    setPositionTitle('');
+    setMainResponsibility('');
+    setDateWorked('');
+    toggleWorkExperience();
   };
 
   return (
@@ -23,42 +44,42 @@ function WorkExperience() {
           <form className="form">
             <fieldset>
               <label>Company Name: </label>
-              <input />
+              <input
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+              />
             </fieldset>
 
             <fieldset>
               <label>Position Title: </label>
-              <input />
+              <input
+                value={positionTitle}
+                onChange={(e) => setPositionTitle(e.target.value)}
+              />
             </fieldset>
 
             <fieldset>
               <label>Main Responsibility of Your Job: </label>
-              <input />
+              <input
+                value={mainResponsibility}
+                onChange={(e) => setMainResponsibility(e.target.value)}
+              />
             </fieldset>
 
             <fieldset>
               <label>Date Worked (From and Until): </label>
-              <input />
+              <input
+                value={dateWorked}
+                onChange={(e) => setDateWorked(e.target.value)}
+              />
             </fieldset>
           </form>
-          <button onClick={toggleWorkExperience}>Save</button>
+          <button onClick={handleSave}>Save</button>
           <button onClick={toggleWorkExperience}>Remove</button>
         </div>
       )}
     </div>
   );
-}
-
-{
-  /* Add Educational Experience? h3 and Add Professional Experience h3
-
-        and a button underneath that disappears when clicked (saying yes for now)
-
-        and a save button shows up instead along with the formfield 
-
-        and a remove button also shows up and disappears when clicked along with the formfield that persists unless clicked
-
-         */
 }
 
 export default WorkExperience;

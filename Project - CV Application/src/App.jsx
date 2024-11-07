@@ -13,12 +13,12 @@ function App() {
   const [eduExperienceData, setEduExperienceData] = useState([]);
   const [workExperienceData, setWorkExperienceData] = useState([]);
 
-  const addWorkExperienceData = () => {
-    setWorkExperienceData(...workExperienceData.push())
+  const addWorkExperienceData = (newWorkExperience) => {
+    setWorkExperienceData(prevData => [...prevData, newWorkExperience]);
   }
-
-  const addEduExperienceData = () => {
-    setEduExperienceData(...eduExperienceData.push())
+  
+  const addEduExperienceData = (newEduExperience) => {
+    setEduExperienceData(prevData => [...prevData, newEduExperience]);
   }
 
   const changeFullName = (e) => {
@@ -42,11 +42,9 @@ function App() {
           email={email} changeEmail={changeEmail}
           phoneNumber={phoneNumber} changePhoneNumber={changePhoneNumber}
           />
-          <EduExperience 
-          eduExperienceData={eduExperienceData} addEduExperienceData={addEduExperienceData}
+          <EduExperience addEduExperienceData={addEduExperienceData}
           />
-          <WorkExperience 
-          workExperienceData={workExperienceData} addWorkExperienceData={addWorkExperienceData}
+          <WorkExperience addWorkExperienceData={addWorkExperienceData}
           />
         </div>
         <div className='right'>

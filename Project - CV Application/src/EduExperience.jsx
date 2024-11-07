@@ -1,12 +1,30 @@
 import { useState } from "react";
 
-function EduExperience() {
+function EduExperience({addEduExperienceData}) {
   const [addEduExperienceVisible, setAddEduExperienceVisible] = useState(false);
 
   const toggleEduExperience = () => {
     addEduExperienceVisible
       ? setAddEduExperienceVisible(false)
       : setAddEduExperienceVisible(true);
+  };
+
+  const [schoolName, setSchoolName] = useState('');
+  const [titleOfStudy, setTitleOfStudy] = useState('');
+  const [dateOfStudy, setDateOfStudy] = useState('');
+
+  const handleSave = () => {
+    const newEduExperience = {
+      schoolName,
+      titleOfStudy,
+      dateOfStudy,
+    };
+    addEduExperienceData(newEduExperience);
+    // Clear local state
+    setSchoolName('');
+    setTitleOfStudy('');
+    setDateOfStudy('');
+    toggleEduExperience();
   };
 
   return (
@@ -20,37 +38,34 @@ function EduExperience() {
           <form className="form">
             <fieldset>
               <label>School Name: </label>
-              <input />
+              <input
+                value={schoolName}
+                onChange={(e) => setSchoolName(e.target.value)}
+              />
             </fieldset>
 
             <fieldset>
               <label>Title of Study: </label>
-              <input />
+              <input
+                value={titleOfStudy}
+                onChange={(e) => setTitleOfStudy(e.target.value)}
+              />
             </fieldset>
 
             <fieldset>
               <label>Date of Study: </label>
-              <input />
+              <input
+                value={dateOfStudy}
+                onChange={(e) => setDateOfStudy(e.target.value)}
+              />
             </fieldset>
           </form>
-          <button onClick={toggleEduExperience}>Save</button>
+          <button onClick={handleSave}>Save</button>
           <button onClick={toggleEduExperience}>Remove</button>
         </div>
       )}
     </div>
   );
-}
-
-{
-  /* Add Educational Experience? h3 and Add Professional Experience h3
-
-        and a button underneath that disappears when clicked (saying yes for now)
-
-        and a save button shows up instead along with the formfield 
-
-        and a remove button also shows up and disappears when clicked along with the formfield that persists unless clicked
-
-         */
 }
 
 export default EduExperience;
