@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
+// temporary
+
 import { useState } from "react";
-import PropTypes from 'prop-types';
 import "../styles/addToDo.css";
 
 function AddToDo({ pushToDo }) {
@@ -48,11 +50,6 @@ function AddToDo({ pushToDo }) {
       <button type="submit">Submit</button>
     </form>
   );
-}
- 
-// Simply defining the prop type
-AddToDo.propTypes = {
-  pushToDo: PropTypes.func
 }
 
 export default AddToDo;

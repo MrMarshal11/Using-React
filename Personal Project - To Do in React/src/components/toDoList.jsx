@@ -1,4 +1,6 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+// temporary
+
 import "../styles/toDoList.css";
 
 function ToDoList({ toDoArray, removeToDo }) {
@@ -18,12 +20,6 @@ function ToDoList({ toDoArray, removeToDo }) {
       ))}
     </>
   );
-}
-
-// Simply defining the prop types
-ToDoList.propTypes = {
-  toDoArray: PropTypes.array,
-  removeToDo: PropTypes.func
 }
 
 export default ToDoList;
