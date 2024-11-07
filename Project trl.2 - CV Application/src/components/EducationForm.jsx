@@ -1,26 +1,32 @@
-import '../styles/EducationalForm.css'
+import "../styles/EducationalForm.css";
 
-function EducationalForm({updateDateOfStudy, updateTitleOfStudy, updateSchoolName, submitEducationalExperience}) {
+function EducationalForm({
+  updateDateOfStudy,
+  updateTitleOfStudy,
+  updateSchoolName,
+  submitEducationalExperience,
+}) {
   return (
     <>
-    <h2>Add Educational Experience?</h2>
-    <form className="secondaryForm" onSubmit={submitEducationalExperience}>
-      <fieldset>
-        <label>School Name: </label>
-        <input onChange={updateSchoolName}/>
-      </fieldset>
+      <h2>Add Educational Experience?</h2>
+      <form className="secondaryForm" onSubmit={submitEducationalExperience}>
+        <fieldset>
+          <label>School Name: </label>
+          <input onChange={updateSchoolName} />
+        </fieldset>
 
-      <fieldset>
-        <label>Title of Study: </label>
-        <input onChange={updateTitleOfStudy}/>
-      </fieldset>
+        <fieldset>
+          <label>Title of Study: </label>
+          <input onChange={updateTitleOfStudy} />
+        </fieldset>
 
-      <fieldset>
-        <label>Date of Study: </label>
-        <input onChange={updateDateOfStudy}/>
-      </fieldset>
+        <fieldset>
+          <label>Date of Study: </label>
+          <input onChange={updateDateOfStudy} />
+        </fieldset>
 
-    </form>
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
 }

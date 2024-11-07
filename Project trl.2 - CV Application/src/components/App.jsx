@@ -24,9 +24,9 @@ function App() {
 
   // EducationalForm
   const [educationalExperience, setEducationalExperience] = useState([
-    {schoolName: '',
-      titleOfStudy: '',
-      dateOfStudy: ''
+    {schoolName: 'Griffith University Gold Coast',
+      titleOfStudy: 'Bachelor of Biomedical Science',
+      dateOfStudy: '11 / 11 / 2003'
     }
   ])
 
@@ -53,8 +53,14 @@ function App() {
 
   // update on input change
   // when submit, push new object into educational experience
+
+  // figure out how to do the one below:
+
+
   // after thats done, send it to CV and then map educationalForm 
   // display results in a new div
+
+  // another thing to fix is to make the new form submits into objects not arrays
 
   return (
     <>
