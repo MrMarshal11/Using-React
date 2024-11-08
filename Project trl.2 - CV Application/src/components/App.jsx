@@ -29,9 +29,9 @@ function App() {
   const [educationalExperience, setEducationalExperience] = useState([
     {
       id: crypto.randomUUID(),
-      schoolName: "Griffith University Gold Coast",
+      schoolName: "Griffith University Melbourne",
       titleOfStudy: "Bachelor of Biomedical Science",
-      dateOfStudy: "11 / 11 / 2003",
+      dateOfStudy: "13 / 03 / 2020",
     },
   ]);
 
@@ -69,7 +69,7 @@ function App() {
   const [practicalExperience, setPracticalExperience] = useState([
     {
       id: crypto.randomUUID(),
-      companyName: "Woolworths Surfers Paradise",
+      companyName: "Woolworths Mexico",
       positionTitle: "Supervisor",
       mainResponsibilities: "supervise, work the cash register etc",
       dateOfWork: "08 / 12 / 2021",
