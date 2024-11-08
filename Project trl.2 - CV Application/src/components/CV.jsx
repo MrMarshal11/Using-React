@@ -10,7 +10,7 @@ function CV({
 }) {
   return (
     <>
-      <div>
+      <div className="field">
         <h2>Name: {fullName}</h2>
         <h3>Email: {email}</h3>
         <h3>Phone Number: {phoneNumber}</h3>
@@ -18,23 +18,23 @@ function CV({
 
       {educationalExperience.map((arr) => {
         return (
-          <div key={arr.id}>
+          <div className="field" key={arr.id}>
             <h2>Temp. Educational Experience Title</h2>
-            <h3>{arr.schoolName}</h3>
-            <h3>{arr.titleOfStudy}</h3>
-            <h3>{arr.dateOfStudy}</h3>
+            <h3>School Name: {arr.schoolName}</h3>
+            <h3>Title of Study: {arr.titleOfStudy}</h3>
+            <h3>Date of Study: {arr.dateOfStudy}</h3>
           </div>
         );
       })}
       
       {practicalExperience.map((arr) => {
         return (
-          <div key={arr.id}>
+          <div className="field" key={arr.id}>
             <h2>Temp. Practical Experience Title</h2>
-            <h3>{arr.companyName}</h3>
-            <h3>{arr.positionTitle}</h3>
-            <h3>{arr.mainResponsibilities}</h3>
-            <h3>{arr.dateOfWork}</h3>
+            <h3>Company Name: {arr.companyName}</h3>
+            <h3>Position Title: {arr.positionTitle}</h3>
+            <h3>Main Responsibilities: {arr.mainResponsibilities}</h3>
+            <h3>Date of Work: {arr.dateOfWork}</h3>
           </div>
         );
       })}

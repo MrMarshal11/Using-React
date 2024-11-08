@@ -5,6 +5,8 @@ import CV from "./CV";
 import EducationalForm from "./EducationForm";
 import PracticalForm from "./PracticalForm";
 
+// add remove and edit buttons on cv.
+
 function App() {
   // PersistentForm
   const [fullName, setFullName] = useState("");
