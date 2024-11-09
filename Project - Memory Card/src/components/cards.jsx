@@ -12,24 +12,28 @@ import PropTypes from 'prop-types';
 // game win when 12 indexes are in the array.
 
 function Cards({increaseCount}) {
-  // Create list of cards
+  // Create list of cards and sort randomly
   const cardsValue = [];
 
   for (let i = 0; i < 12; i++) {
     const newCardValue = Math.random();
-    cardsValue.push(newCardValue);
+    cardsValue.push({randomness: newCardValue, id: i});
   }
 
-  cardsValue.sort();
+  cardsValue.sort((a, b) => a.randomness - b.randomness)
 
   return (
     <>
       <div className="gameboard">
         {cardsValue.map((card) => {
           return (
-            <div className="card" key={crypto.randomUUID()} onClick={increaseCount}>
+            <div 
+            className="card" 
+            key={crypto.randomUUID()} 
+            onClick={increaseCount}
+            >
               <div className="imgs"></div>
-              <p className="names">{card}</p>
+              <p className="names">{card.id}</p>
             </div>
           );
         })}
