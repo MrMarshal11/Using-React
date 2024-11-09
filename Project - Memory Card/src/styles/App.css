@@ -40,6 +40,7 @@
   box-shadow: 5px 10px 5px gray;
   text-shadow: 1px 1px 1px black;
   font-size: 1.75rem;
+  text-align: center;
 }
 
 .card:hover {
