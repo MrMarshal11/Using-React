@@ -1,4 +1,6 @@
-function Top() {
+import PropTypes from 'prop-types';
+
+function Top({count}) {
   return (
     <div className="top">
       <div className="top-left">
@@ -9,11 +11,15 @@ function Top() {
         </h2>
       </div>
       <div className="top-right">
-        <h4>Score: </h4>
+        <h4>Score: {count}</h4>
         <h4>High Score: </h4>
       </div>
     </div>
   );
+}
+
+Top.propTypes = {
+  count: PropTypes.number
 }
 
 export default Top;

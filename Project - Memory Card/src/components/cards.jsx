@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 // redo cards.jsx (without gpt help and do it on your own now)
 
@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 // game loss when an index is added to the array that is already there
 // game win when 12 indexes are in the array.
 
-function Cards() {
+function Cards({increaseCount}) {
   // Create list of cards
   const cardsValue = [];
 
@@ -21,26 +21,6 @@ function Cards() {
   }
 
   cardsValue.sort();
-
-  // Number of times card is clicked
-  let [count, setCount] = useState(0);
-
-  const increaseCount = () => {
-    setCount(count + 1)
-  }
-
-  const resetCount = () => {
-    alert('You Win!');
-    setCount(0);
-  }
-
-  // Reset game
-  useEffect(() => {
-    console.log(count) // temporary
-    if (count === 12) {
-      resetCount();
-    }
-  } , [count])
 
   return (
     <>
@@ -56,6 +36,10 @@ function Cards() {
       </div>
     </>
   );
+}
+
+Cards.propTypes = {
+  increaseCount: PropTypes.func
 }
 
 export default Cards;
