@@ -15,11 +15,20 @@ function App() {
       alert('You Win!');
       setCount(0);
     }
+
+    // High score functionality
+    let [highScore, setHighScore] = useState(0);
+
+    const updateHighScore = () => {
+      setHighScore(count);
+    }
+
   
     // Reset game
     useEffect(() => {
       console.log(count) // temporary
       count === 12 && resetCount(); // if count = 12, you win
+      (count > highScore) && updateHighScore();
     } , [count])
 
     
@@ -27,6 +36,7 @@ function App() {
     <>
       <Top 
       count={count}
+      highScore={highScore}
       />
       <Cards 
       increaseCount={increaseCount}
