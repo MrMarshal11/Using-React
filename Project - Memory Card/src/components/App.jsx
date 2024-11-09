@@ -39,10 +39,8 @@ function App() {
   
     // Reset game
     useEffect(() => {
-      console.log(count) // temporary
       count === 12 && resetCountWin(); // if count = 12, you win
       (count > highScore) && updateHighScore(); // Update high score
-      console.log(cardsClicked); // temporary
       cardsClicked.length === 12 && setCardsClicked([]); // Reset cardsClicked
       if (new Set(cardsClicked).size !== cardsClicked.length) { // If duplicate cardsClicked, reset game
         resetCountLose();

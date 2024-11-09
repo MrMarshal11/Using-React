@@ -22,7 +22,7 @@ function Cards({increaseCount, updateCardsClicked}) {
       try {
       const urls = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNames[i]}`);
       const data = await urls.json();
-      imgs.push(data.sprites.front_default);
+      imgs.push({img: data.sprites.front_default, name: pokemonNames[i]});
       }
       catch {
         console.log('error');
@@ -32,12 +32,21 @@ function Cards({increaseCount, updateCardsClicked}) {
     getData();
   }, [])
 
+  // Loading screen while fetching data
+  if (pokemonImgs.length < 12) {
+    return (
+    <div className='load'>
+      <div className='loading'>Loading...</div>;
+    </div>
+    )
+  }
+
   // Create list of cards and sort randomly
   const cardsValue = [];
 
   for (let i = 0; i < 12; i++) {
     const newCardValue = Math.random();
-    cardsValue.push({randomness: newCardValue, id: i, img: pokemonImgs[i]});
+    cardsValue.push({randomness: newCardValue, id: i, img: pokemonImgs[i].img, name: pokemonImgs[i].name});
   }
 
   cardsValue.sort((a, b) => a.randomness - b.randomness)
@@ -53,7 +62,7 @@ function Cards({increaseCount, updateCardsClicked}) {
             onClick={() => {increaseCount(); updateCardsClicked(card.id);}}
             >
               <img className="imgs" src={card.img} />
-              <p className="names">{card.id}</p>
+              <p className="names">{card.name}</p>
             </div>
           );
         })}
