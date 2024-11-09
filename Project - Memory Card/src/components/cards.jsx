@@ -1,32 +1,43 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Cards({increaseCount, updateCardsClicked}) {
-  // Create list of cards and sort randomly
-  const cardsValue = [];
 
-  const [pokemonImgs, setPokemonImgs] = useState('')
+  // Fetch the pokemon imgs and names
+  const pokemonNames = 
+  ['ho-oh', 'lugia', 'swanna', 'drifloon', 'porygon', 'turtonator', 
+    'froslass', 'raikou', 'celebi', 'tyranitar', 'ampharos', 'pikachu']
+  const [pokemonImgs, setPokemonImgs] = useState([])
 
   const insertPokemonImgs = (imgValue) => {
     setPokemonImgs(imgValue)
   }
 
-  async function getData() {
-    try {
-    const urls = await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
-    const data = await urls.json();
-    insertPokemonImgs(data.sprites.front_default);
-    }
-    catch {
-      console.log('error');
-    }
-  }
+  useEffect(() => {
+    async function getData() {
 
-  getData();
+      const imgs = [];
+
+      for (let i = 0; i < 12; i++) {
+      try {
+      const urls = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNames[i]}`);
+      const data = await urls.json();
+      imgs.push(data.sprites.front_default);
+      }
+      catch {
+        console.log('error');
+      }}
+      insertPokemonImgs(imgs)
+    }
+    getData();
+  }, [])
+
+  // Create list of cards and sort randomly
+  const cardsValue = [];
 
   for (let i = 0; i < 12; i++) {
     const newCardValue = Math.random();
-    cardsValue.push({randomness: newCardValue, id: i, img: pokemonImgs});
+    cardsValue.push({randomness: newCardValue, id: i, img: pokemonImgs[i]});
   }
 
   cardsValue.sort((a, b) => a.randomness - b.randomness)
