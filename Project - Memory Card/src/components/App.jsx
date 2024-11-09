@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/App.css";
+import Top from "./Top";
+import Cards from "./cards";
 
 // on render each card should be assigned a random value
 // and on click each card's value should be changed randomly again
@@ -13,69 +15,8 @@ import "../styles/App.css";
 function App() {
   return (
     <>
-      <div className="top">
-        <div className="top-left">
-          <h1>Memory Game</h1>
-          <h2>
-            Get points by clicking on an image but don't click on any more than
-            once!
-          </h2>
-        </div>
-        <div className="top-right">
-          <h4>Score: </h4>
-          <h4>High Score: </h4>
-        </div>
-      </div>
-      <div className="gameboard">
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-        <div className="card">
-          <div className="imgs"></div>
-          <p className="names">demo name</p>
-        </div>
-      </div>
+      <Top />
+      <Cards />
     </>
   );
 }
