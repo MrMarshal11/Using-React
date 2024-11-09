@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 // game loss when an index is added to the array that is already there
 // game win when 12 indexes are in the array.
 
-function Cards({increaseCount}) {
+function Cards({increaseCount, updateCardsClicked}) {
   // Create list of cards and sort randomly
   const cardsValue = [];
 
@@ -30,7 +30,7 @@ function Cards({increaseCount}) {
             <div 
             className="card" 
             key={crypto.randomUUID()} 
-            onClick={increaseCount}
+            onClick={() => {increaseCount(); updateCardsClicked(card.id);}}
             >
               <div className="imgs"></div>
               <p className="names">{card.id}</p>
@@ -43,7 +43,8 @@ function Cards({increaseCount}) {
 }
 
 Cards.propTypes = {
-  increaseCount: PropTypes.func
+  increaseCount: PropTypes.func,
+  updateCardsClicked: PropTypes.func
 }
 
 export default Cards;
