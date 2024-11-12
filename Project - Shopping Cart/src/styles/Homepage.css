@@ -1,0 +1,44 @@
+main {
+    display: grid;
+    grid-template: 1fr / 1fr
+}
+
+.mainInside {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    height: 100vh;
+    margin: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.mainInside div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 2rem;
+        padding: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        border-radius: 20px;
+        background-color: rgb(0, 183, 255);
+        color: white;
+    }
+    a:hover {
+        background-color: rgb(3, 134, 185);
+    }
+}
+
+.mainInside .left {
+    background-color: rgb(15, 15, 15);
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+}
