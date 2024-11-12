@@ -6,17 +6,13 @@ import "../styles/App.css";
 
 function App() {
   const [shoppingTotal, setShoppingTotal] = useState(0);
-  const updateShoppingTotal = (e) => {
-    e.preventDefault();
-    setShoppingTotal(e.target.value);
-  } 
 
   const location = useLocation();
 
   return (
     <>
       <Nav shoppingTotal={shoppingTotal}/>
-      <Outlet context={updateShoppingTotal}/>
+      <Outlet context={setShoppingTotal}/>
       {location.pathname === '/' && <Homepage />}
     </>
   );
