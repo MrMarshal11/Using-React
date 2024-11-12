@@ -11,7 +11,7 @@ function Homepage() {
           </div>
         </div>
         <div>
-          <Link to="shopping">Click here to go to the shop</Link>
+          <Link to="/shopping">Click here to go to the shop</Link>
         </div>
       </div>
     </div>

@@ -1,16 +1,17 @@
 import ErrorPage from "./ErrorPage";
 import App from "./App";
-import Shopping from "./Shopping";
+import ShoppingLayout from "./ShoppingLayout";
+import Homepage from "./Homepage";
 
 const routes = [
     {
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
-    },
-    {
-        path: 'shopping',
-        element: <Shopping />,
+        children: [
+            {path: 'home', element: <Homepage />},
+            {path: 'shopping', element: <ShoppingLayout />},
+        ]
     },
 ]
 

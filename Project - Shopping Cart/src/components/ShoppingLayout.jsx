@@ -1,10 +1,13 @@
 import "../styles/ShoppingLayout.css";
+import {useOutletContext} from 'react-router-dom'
 
 function ShoppingLayout() {
   const products = [
     {name: "Hair Dryer", img: 'hairDryer.png'}, 
     {name: "Towel", img: 'towel.jpg'}, 
     {name: "Toothbrush", img: 'toothbrush.jpg'}];
+
+    const updateShoppingTotal = useOutletContext();
 
   return (
     <div className="main">
@@ -17,7 +20,7 @@ function ShoppingLayout() {
                 </div>
                 <img src={product.img} className="mid"></img>
                 <form className="bottom">
-                  <button>Add to cart?</button>
+                  <button onSubmit={() => updateShoppingTotal(e)}> Add to cart?</button>
                   <fieldset>
                     <label>amount: </label>
                     <input type="number"></input>

@@ -6,7 +6,7 @@ function Nav({shoppingTotal}) {
     <nav>
       <div className="topLeft">
         <img src="react.svg"></img>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/shopping">Shop</Link>
       </div>
       <div className="topRight">
