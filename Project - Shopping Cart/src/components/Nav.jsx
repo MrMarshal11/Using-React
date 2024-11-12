@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Nav.css"
 
-function Nav() {
+function Nav({shoppingTotal}) {
   return (
     <nav>
       <div className="topLeft">
@@ -11,6 +11,7 @@ function Nav() {
       </div>
       <div className="topRight">
         <img src="cart.svg"></img>
+        <p>{shoppingTotal}</p>
         <button>Checkout?</button>
       </div>
     </nav>

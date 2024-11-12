@@ -60,3 +60,10 @@ img {
     height: auto;
     cursor: pointer;
 }
+
+.topRight p {
+    position: absolute;
+    right: 130px;
+    top: 25px;
+    color: rgb(38, 0, 255);
+}

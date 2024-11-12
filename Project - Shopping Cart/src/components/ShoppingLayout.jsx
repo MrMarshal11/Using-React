@@ -11,7 +11,7 @@ function ShoppingLayout() {
       <div className="mainInside2">
         {products.map((product) => {
           return (
-              <div className="insideTemplate">
+              <div className="insideTemplate" key={crypto.randomUUID()}>
                 <div className="top">
                   <p>{product.name}</p>
                 </div>
